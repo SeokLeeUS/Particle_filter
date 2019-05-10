@@ -63,7 +63,7 @@ class robot:
 		res.set_noise(self.forward_noise,self.turn_noise, self.sense_noise)
 		return res
 
-	def Gaussian(self,mu,sigma,X):
+	def Gaussian(self,mu,sigma,x):
 
 		return exp(-((mu-x)**2)/(sigma**2)/2.0)/sqrt(2.0*pi*(sigma**2))
 

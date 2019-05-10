@@ -93,6 +93,9 @@ def eval(r,p):
 
 myrobot = robot()
 # enter code here
+forward_noise = 5.0
+turn_noise = 0.1
+sense_noise = 5.0
 myrobot.set_noise(5.0,0.1,5.0)
 
 myrobot.set(30.0, 50.0, pi/2)
@@ -100,3 +103,41 @@ myrobot = myrobot.move(-pi/2, 15.0)
 print (myrobot.sense())
 myrobot = myrobot.move(-pi/2, 10.0)
 print (myrobot.sense())
+
+
+# Now we want to create particles,
+# p[i] = robot(). In this assignment, write
+# code that will assign 1000 such particles
+# to a list.
+#
+# Your program should print out the length
+# of your list (don't cheat by making an
+# arbitrary list of 1000 elements!)
+#
+# Don't modify the code below. Please enter
+# your code at the bottom.
+
+N = 1000
+p = []
+
+myrobot = robot()
+myrobot = myrobot.move(0.1,5.0)
+Z = myrobot.sense()
+
+for i in range(N):
+    x = robot()
+    x.set_noise(0.05,0.05,5.0)
+    p.append(x)
+
+
+p2 = []
+for i in range(N):
+    p2.append(p[i].move(0.1,5.0))
+p = p2
+
+w = []
+
+for i in range(N):
+    w.append(p[i].measurement_prob(Z))
+    
+print(w)
