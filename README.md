@@ -41,6 +41,9 @@ Udacity self driving car nano degree project #5 prep work
 
 # Project implementation tips
 
+
+## 1. initialization 
+
 - sample Gaussian ditribution to determine particles
 - consider Gaussian sensor noise around initial GPS poisition and heading estimates
 - C++ standard library normal distribution and C++ standard library random engine function 
@@ -63,6 +66,7 @@ for (int i = 0; i < 10000; ++i) {
 ```
 [ref: https://blog.naver.com/drvoss/220340760979]
 
+- implementation: 
 ```
 /*
 function taking GPS position and initial heading as input.
@@ -129,5 +133,14 @@ void printSamples(double gps_x, double gps_y, double theta) {
 	return;
 }
 ```
+## 2. Prediction
+
+- utilize motion model to predict where the vehicle would be at the next step. 
+
+- Here is the excerpt of motion model equation for bicycle model:
+
+![motion_model1](/particle_filter_figure/motion_model.png)
+
+
 
 
