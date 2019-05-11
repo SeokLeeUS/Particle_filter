@@ -63,7 +63,35 @@ for (int i = 0; i < 10000; ++i) {
 ```
 [ref: https://blog.naver.com/drvoss/220340760979]
 
+```
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <map>
+#include <random>
+#include <cmath>
 
+using namespace std;
+
+int main()
+{
+	default_random_engine generator;
+	normal_distribution<double> distribution(5.0, 4.0);
+	map<int, int> hist;
+	for (int n = 0; n < 5000000; ++n) {
+		++hist[std::round(distribution(generator))];
+	}
+
+	for (auto p : hist) {
+
+		cout << std::fixed << std::setprecision(1) << std::setw(2) << p.first << ' ' << std::string(p.second / 25000, '*') << endl;
+	}
+
+	getchar();
+
+	return 0;
+}
+```
 
 
 
