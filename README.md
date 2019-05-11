@@ -64,34 +64,70 @@ for (int i = 0; i < 10000; ++i) {
 [ref: https://blog.naver.com/drvoss/220340760979]
 
 ```
+/*
+function taking GPS position and initial heading as input.
+output: print out to the terminal 3 samples from a normal distribution with mean equal to the GPS position
+and initial heading measurements and standard deviation of 2 m for the x and y position and 0.05 radians for the heading of the car.
+
+*/
+
 #include <iostream>
-#include <iomanip>
-#include <string>
-#include <map>
 #include <random>
-#include <cmath>
 
 using namespace std;
+using std::normal_distribution;
 
-int main()
-{
-	default_random_engine generator;
-	normal_distribution<double> distribution(5.0, 4.0);
-	map<int, int> hist;
-	for (int n = 0; n < 5000000; ++n) {
-		++hist[std::round(distribution(generator))];
-	}
+void printSamples(double gps_x, double gps_y, double theta);
 
-	for (auto p : hist) {
+int main() {
 
-		cout << std::fixed << std::setprecision(1) << std::setw(2) << p.first << ' ' << std::string(p.second / 25000, '*') << endl;
-	}
+	// set GPS provided state of the car
+	double gps_x = 4983;
+	double gps_y = 5029;
+	double theta = 1.201;
 
-	getchar();
-
+	printSamples(gps_x, gps_y, theta);
 	return 0;
+
+}
+
+void printSamples(double gps_x, double gps_y, double theta) {
+
+	std::default_random_engine gen;
+	double std_x, std_y, std_theta;
+
+	/*
+	stadard deviation of x: 2m
+	standard deviation of y: 2m
+	standard deviation of theta: 0.05 radians
+	*/
+
+	std_x = 2;
+	std_y = 2;
+	std_theta = 0.05;
+
+	normal_distribution<double> dist_x(gps_x, std_x);
+	normal_distribution<double> dist_y(gps_y, std_y);
+	normal_distribution<double> dist_theta(theta, std_theta);
+
+	for (int i = 0; i < 3; ++i) {
+		double sample_x, sample_y, sample_theta;
+
+		// TODO: sample from these normal distributions like this:
+		sample_x = dist_x(gen);
+		sample_y = dist_y(gen);
+		sample_theta = dist_theta(gen);
+		// where "gen" is the random
+
+
+
+		cout << "sample" << i + 1 << "" << sample_x << "" << sample_y << sample_theta << endl;
+
+	}
+
+
+	return;
 }
 ```
-[ref: https://iamaman.tistory.com/644]
 
 
