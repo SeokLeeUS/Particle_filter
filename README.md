@@ -15,12 +15,12 @@ Udacity self driving car nano degree project #5 prep work
 
 # Steps for implementation:
 
-|algorithm flow chart|
-|:--                 |
-|initialization      |
-|prediction          |
-|weight updates      |
-|resampling          |
+|sequence|algorithm flow chart|
+|1       |:--                 |
+|2       |initialization      |
+|3       |prediction          |
+|4       |weight updates      |
+|5       |resampling          |
 
 
 
