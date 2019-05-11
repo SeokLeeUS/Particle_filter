@@ -45,8 +45,23 @@ Udacity self driving car nano degree project #5 prep work
 - consider Gaussian sensor noise around initial GPS poisition and heading estimates
 - C++ standard library normal distribution and C++ standard library random engine function 
 
+- C++ random library supports normal distribtion class. The class receives mean (mean()) and standard deviation (stddev()) as inputs. 
 
+- example:
 
+```
+std::default_random_engine eng;
+std::normal_distribution<double> dist(5.0,2.0);
+// mean 5, standard deviation 2
+array<int,10> tmp = {0, }; 
+//initialize with zero and set the array size of 10
+for (int i = 0; i < 10000; ++i) {
+  double number = dist(eng);
+  if((number>= 0.0) &&(number <10.0)) ++tmp[int(number)];
+}
+
+```
+[ref: https://blog.naver.com/drvoss/220340760979]
 
 
 
