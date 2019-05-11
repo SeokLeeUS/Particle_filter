@@ -25,6 +25,7 @@ Udacity self driving car nano degree project #5 prep work
 
 ## 1. initialization
 - Estimate position from GPS input
+- This is the most practical way to initialize the particles and generate real time output
 
 ## 2. prediction
 - Add control input(yaw rate& velocity) for all particles
@@ -37,6 +38,15 @@ Udacity self driving car nano degree project #5 prep work
 
 ## 5. return new particle set to prediciton
 - new set of particles representing the Bayes filter posterior probability. 
+
+# Project implementation tips
+
+- sample Gaussian ditribution to determine particles
+- consider Gaussian sensor noise around initial GPS poisition and heading estimates
+- C++ standard library normal distribution and C++ standard library random engine function 
+
+
+
 
 
 
