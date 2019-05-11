@@ -9,7 +9,19 @@ Udacity self driving car nano degree project #5 prep work
 |Particle filter  |continuous   |multimodal    |?          |approximate|
 
 
-# A flow chart describes how the particle filter implementation would look like:
+# A flow chart describes particle filter impmentation:
 
 ![Particlefiiter_flowchart 1](/particle_filter_figure/particle_filter_algorithm_flowchart.png)
+
+# Steps for implementation:
+
+|algorithm flow chart|
+|:--                 |
+|initialization      |
+|prediction          |
+|weight updates      |
+|resampling          |
+
+
+
 
