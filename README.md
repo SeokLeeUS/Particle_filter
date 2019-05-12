@@ -141,6 +141,8 @@ void printSamples(double gps_x, double gps_y, double theta) {
 
 ![motion_model1](/particle_filter_figure/motion_model.png)
 
+## 3. Update
 
+![update_step1](/particle_filter_figure/update_step.png)
 
 
