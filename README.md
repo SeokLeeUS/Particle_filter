@@ -178,3 +178,8 @@ int main() {
 After transforming observation into map coordinate, this step associates the transformed observation with the nearest landmark. 
 
 ![Association](/particle_filter_figure/association.png)
+
+
+## 6. Particle weight
+
+![Particle_weight](/particle_filter_figure/particle_weights_solution.png)
