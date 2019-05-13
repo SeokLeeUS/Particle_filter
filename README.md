@@ -179,6 +179,7 @@ After transforming observation into map coordinate, this step associates the tra
 
 ![Association](/particle_filter_figure/association.png)
 
+Reference: http://ais.informatik.uni-freiburg.de/teaching/ws09/robotics2/pdfs/rob2-11-dataassociation.pdf
 
 ## 6. Particle weight
 
