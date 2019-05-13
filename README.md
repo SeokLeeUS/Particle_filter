@@ -184,7 +184,7 @@ After transforming observation into map coordinate, this step associates the tra
 
 ![Particle_weight](/particle_filter_figure/particle_weights_solution.png)
 
-'''
+```
 #define _USE_MATH_DEFINES
 #include "multivariate_gaussian_particle_weight.h"
 #include <cmath>
@@ -202,4 +202,4 @@ double multiv_prob(double sig_x, double sig_y, double x_obs, double y_obs, doubl
 
 	return weight;
 }
-'''
+```
