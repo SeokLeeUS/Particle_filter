@@ -174,6 +174,6 @@ int main() {
 }
 
 ```
-#5 Association 
+## 5. Association 
 After transforming observation into map coordinate, this step associates the transformed observation with the nearest landmark. 
 ![Association](/particle_filter_figure/association.png)
