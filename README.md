@@ -163,7 +163,7 @@ int main() {
 	theta = -M_PI / 2;
 
 	double x_map;
-	x_map = x_part + (cos(theta) * x_obs) - (sin(theta) * y_obs);
+	x_map = x_part + (cos(theta) * x_obs) - (sin(theta) * y_obs); //x_obs,y_obs are car coordinates. 
 
 	double y_map;
 	y_map = y_part + (sin(theta) * x_obs) + (cos(theta) * y_obs);
