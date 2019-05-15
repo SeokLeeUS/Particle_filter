@@ -1,5 +1,6 @@
 # Particle_filter
 Udacity self driving car nano degree project #5 prep work
+Ref material for my personal record: https://docs.google.com/spreadsheets/d/1ZMtaS0Ifh5b9AcZpMV0RAKk8vmG7To65acA2ZQdAIHE/edit?usp=sharing
 
 
 |filter variance  |State space  |belief        |efficiency |in robotics|
