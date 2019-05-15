@@ -205,5 +205,65 @@ double multiv_prob(double sig_x, double sig_y, double x_obs, double y_obs, doubl
 	return weight;
 }
 ```
-## 7. Result:
+## 7. Resampling:
+
+1. Resampling wheel. what is it?
+https://www.youtube.com/watch?v=wNQVo6uOgYA
+2. How to implement in python?
+https://www.youtube.com/watch?v=aHLslaWO-AQ
+3. How to implement in c++?
+```
+void ParticleFilter::resample() {
+
+	/**   TODO: Resample particles with replacement with probability proportional
+		* to their weight.
+		* NOTE : You may find std::discrete_distribution helpful here.
+		* http ://en.cppreference.com/w/cpp/numeric/random/discrete_distribution
+		* https://robotics.stackexchange.com/questions/479/particle-filters-how-to-do-resampling
+		* http://cecas.clemson.edu/~ahoover/ece854/lecture-notes/lecture-pf.pdf
+		* https://www.youtube.com/watch?v=aHLslaWO-AQ
+		*
+
+	*/
+	
+	for (int i = 0; i < particles.size(); ++i)
+	{
+		cout << "weight:" << particles[i].weight << endl;
+	}
+	unsigned seed = std::chrono::system_clock::now().time_since_epoch().count(); // creating seed
+	std::default_random_engine gen_resample(seed);
+	std::uniform_real_distribution<> ranN(0, 1);
+
+	int index;
+	int N = particles.size();
+	index = int(ranN(gen_resample) * N);
+	double beta = 0.0;
+	double mw = 0.0;
+	std::vector<Particle> p3;
+
+	for (int j = 0; j < N; j++)
+	{
+		mw = max(particles[j].weight, mw);
+
+	}
+
+	double max_weight = mw; //obtain maximum weight
+
+	for (int i = 0; i < N; i++)
+	{
+		beta = beta + ranN(gen_resample) * 2 * max_weight;
+		while (particles[index].weight < beta) {
+
+			beta = beta - particles[index].weight;
+			index = (index + 1) % N;
+		}
+		p3.push_back(particles[index]);
+	}
+	particles = p3;
+}
+
+
+```
+
+## 8. Result:
 ![Particle_filter_success](/particle_filter_figure/success_particle_filter.png)
